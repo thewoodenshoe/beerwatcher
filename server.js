@@ -1,11 +1,25 @@
-const sideprojectScraper = require('./sideprojectScraper')
 const telegram = require('./telegram')
-sideProjectID = '6133564080281'
+const axios = require('axios')
 let oldValueSP = 1234567890
 
-const checkSideProject = async () => {
+
+const getUrlSP = async (id) => {
     try {
-        let newValueSP = await sideprojectScraper.checkChange(sideProjectID)
+        let payload = await axios.get('https://www.sideprojectbrewing.com/search.js?q=handle:*&view=bss.product.labels')
+        return payload.data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const CheckBeerSP = async () => {
+    try {
+        let beerID = 6133564080281
+        let payload = await getUrlSP(beerID)
+        let arrFound = payload.find (item => item.id == beerID)
+        let newValueSP = arrFound.inventory
+        console.dir(arrFound)
+        console.log('inventory: ' +typeof(arrFound.inventory))
         console.log("Heartbeep. New value: " +newValueSP +". Old value: " +oldValueSP)
         if ((oldValueSP != newValueSP) & (oldValueSP != 1234567890)) {
             telegram.sendMsg("Ambiente sale went from " +oldValueSP +" to " +newValueSP)
@@ -18,6 +32,7 @@ const checkSideProject = async () => {
     }
 }
 
-telegram.sendMsg("Starting..")
-checkSideProject()
-setInterval(checkSideProject, 5* 60 * 1000)
+
+//telegram.sendMsg("Starting..")
+//CheckBeerSP()
+setInterval(CheckBeerSP, 1* 5 * 1000)
