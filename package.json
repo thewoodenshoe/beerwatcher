@@ -20,6 +20,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
+    "fs": "^0.0.1-security",
+    "json-diff": "^0.5.4",
     "puppeteer": "^7.1.0",
     "telegram-bot-api": "^2.0.1"
   }
