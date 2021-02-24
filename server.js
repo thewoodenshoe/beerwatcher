@@ -48,12 +48,12 @@ const checkUpdateSP = async () => {
                     telegram.sendMsg(msg)
                 }
                 if (newkey.inventory != oldkey.inventory) {
-                    msg = 'Inventory changed: ' +newkey.handle + 'value from ' +oldkey.inventory + ' to ' +newkey.inventory
+                    msg = 'Inventory changed: ' +newkey.handle + '. from ' +oldkey.inventory + ' to ' +newkey.inventory
                     console.log(msg)
                     telegram.sendMsg(msg)                     
                 }
                 if (oldkey == null) {
-                    msg = 'NEW in store: ' +newkey.handle + ' with available set to:' +newkey.available
+                    msg = 'NEW in store: ' +newkey.handle + '. Available set to:' +newkey.available
                     console.log(msg)
                     telegram.sendMsg(msg)     
                 }
@@ -70,10 +70,11 @@ const checkUpdateSP = async () => {
 /******** 
 /* MAIN 
 *********/
-setInterval(checkUpdateSP, 1 * 60 * 1000)
+console.log("start..")
+setInterval(checkUpdateSP, 5 * 60 * 1000)
 //checkUpdateSP()
 
 
 //telegram.sendMsg("Starting..")
 //checkBeerSP()
-//setInterval(checkBeerSP, 1* 5 * 1000)
+//setInterval(checkBeerSP, 5 * 60 * 1000)
