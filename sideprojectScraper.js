@@ -1,4 +1,6 @@
+const telegram = require('./telegram')
 const axios = require('axios')
+
 let oldInventory = ''
 let oldHandle = ''
 let oldLockStatus = ''

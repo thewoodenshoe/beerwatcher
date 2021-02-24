@@ -1,8 +1,4 @@
 const SPScraper = require('./sideprojectScraper')
-const telegram = require('./telegram')
-const axios = require('axios')
-const fs = require('fs')
-
 
 const runSP = async () => {
     try {
@@ -18,4 +14,4 @@ const runSP = async () => {
 /* MAIN 
 *********/
 console.log("start..")
-setInterval(runSP, 1 * 5 * 1000)
+setInterval(runSP, 1 * 30 * 1000)
