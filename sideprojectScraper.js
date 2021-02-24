@@ -18,12 +18,15 @@ const downloadURL = async () => {
 
 const runCompare = async (payload) => {
     try {
-        console.log("heartbeat..")
         //let payload = await downloadURL()       
         if (oldPayload != '') { // skip the init
             payload.forEach(function(newkey) { 
                 let oldkey = oldPayload.find (item => item.id == newkey.id)
-
+                if (oldkey == undefined) {
+                    msg = 'NEW in store: ' +newkey.handle + '. Available set to:' +newkey.available
+                    console.log(msg)
+                    telegram.sendMsg(msg)
+                }
                 if (newkey.available != oldkey.available) {
                     msg = 'Availability changed: ' +newkey.handle +' is now:' +newkey.available
                     console.log(msg)
@@ -34,11 +37,7 @@ const runCompare = async (payload) => {
                     console.log(msg)
                     telegram.sendMsg(msg)                     
                 }
-                if (oldkey == null) {
-                    msg = 'NEW in store: ' +newkey.handle + '. Available set to:' +newkey.available
-                    console.log(msg)
-                    telegram.sendMsg(msg)
-                }
+                
                 if (JSON.stringify(newkey.tags) != (JSON.stringify(oldkey.tags))) {
                     msg = 'TAGS Changed for ' +newkey.handle +": " + JSON.stringify(newkey.tags)
                     console.log(msg)
@@ -50,7 +49,7 @@ const runCompare = async (payload) => {
     }
     catch (error) {
        console.error(error)
-       oldPayload = eval(payload)
+       oldPayload = payload
     }
 }
 

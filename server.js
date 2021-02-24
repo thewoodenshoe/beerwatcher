@@ -2,6 +2,7 @@ const SPScraper = require('./sideprojectScraper')
 
 const runSP = async () => {
     try {
+        console.log("Heartbeat..")
         let payload = await SPScraper.downloadURL()
         SPScraper.runCompare(payload)
     } 
@@ -14,4 +15,5 @@ const runSP = async () => {
 /* MAIN 
 *********/
 console.log("start..")
-setInterval(runSP, 1 * 30 * 1000)
+runSP()
+setInterval(runSP, 5 * 60 * 1000)
