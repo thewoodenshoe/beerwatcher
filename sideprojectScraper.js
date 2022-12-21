@@ -120,14 +120,14 @@ const runCompare = async (payload, flagChangedDay, flagChangeMonth) => {
                 console.log('it is end of day, SP made: ' +totalMadeDD +'. Month aggregate: ' +totalMadeMM)
                 today = new Date()
                 todayDD = today.getDate()
-                fs.appendFileSync('./money.txt', 'Day: ' +todayDD +': ' +totalMadeDD +"\n")
+                fs.appendFileSync('./money.log', 'Day: ' +todayDD +': ' +totalMadeDD +"\n")
                 totalMadeDD = 0
             }
             if (flagChangeMonth) {
                 msg = 'Fun fact: End of month earnings: $' +totalMadeMM
                 today = new Date()
                 todayMM = today.getMonth()
-                fs.appendFileSync('./money.txt', 'Month: ' +todayMM +': ' +totalMadeMM +"\n")
+                fs.appendFileSync('./money.log', 'Month: ' +todayMM +': ' +totalMadeMM +"\n")
                 //    telegram.sendMsg(msg)
                 totalMadeMM = 0
                 totalMadeDDMM = 0

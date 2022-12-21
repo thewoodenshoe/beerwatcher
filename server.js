@@ -1,4 +1,5 @@
 const SPScraper = require('./sideprojectScraper')
+const fs = require('fs')
 
 let today = new Date()
 let todayDD = today.getDate()
@@ -36,6 +37,7 @@ const runSP = async () => {
 /******** 
 /* MAIN 
 *********/
-console.log("start.. ")
+console.log("start.. " +todayDD +"." +todayMM)
+fs.appendFileSync('./money.log', 'Start: ' +todayDD +"." +todayMM + "\n")
 runSP()
 setInterval(runSP, 30 * 1 * 1000)
