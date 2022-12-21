@@ -38,6 +38,6 @@ const runSP = async () => {
 /* MAIN 
 *********/
 console.log("start.. " +todayDD +"." +todayMM)
-fs.appendFileSync('./money.log', 'Start: ' +todayDD +"." +todayMM + "\n")
+fs.appendFileSync('./money.log', 'Start: ' +today + "\n")
 runSP()
 setInterval(runSP, 30 * 1 * 1000)
