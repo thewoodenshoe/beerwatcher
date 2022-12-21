@@ -1,0 +1,25 @@
+{
+  "name": "beerwatcher",
+  "version": "1.0.0",
+  "description": "Watching beers websites or facebook for new releases and inform telegram bot",
+  "main": "credentials.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewoodenshoe/beerwatcher.git"
+  },
+  "author": "pstewart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thewoodenshoe/beerwatcher/issues"
+  },
+  "homepage": "https://github.com/thewoodenshoe/beerwatcher#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs": "^0.0.1-security",
+    "telegram-bot-api": "^2.0.1"
+  }
+}
