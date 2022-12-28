@@ -69,7 +69,7 @@ const runCompare = async (payload, flagChangedDay, flagChangeMonth) => {
                         console.log('new id: ' +newkey.id +". tags: " +newkey.tags)
                     }
                     // Informational, check all the inventory changes and show it on the terminal.
-                    if (newkey.inventory != oldkey.inventory && ! tagGiftCard && ! tagGratuity) {
+                    if (newkey.inventory != oldkey.inventory && ! tagGiftCard && ! tagGratuity && newkey.inventory < oldkey.inventory) {
                         saleprice = ((oldkey.inventory - newkey.inventory) * (newkey.price/100))
                         totalMadeDD = (totalMadeDD + saleprice)
                         totalMadeDDMM = (totalMadeMM + totalMadeDD)
